@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="header">
+    🎓 Student Performance Prediction
+</div>
+
+<div class="container">
+
+    <div class="result-card">
+
+        <!-- TOP ICON -->
+        <div class="circle-icon">
+            <i class="fa-solid fa-trophy"></i>
+        </div>
+
+        <h2>Prediction Result</h2>
+
+        <!-- RESULT -->
+        <h1 class="{{ 'pass' if result == 'PASS' else 'fail' }}">
+            {{ result }}
+            {% if result == "PASS" %}
+            ✔
+            {% else %}
+            ✖
+            {% endif %}
+        </h1>
+
+        <!-- MESSAGE -->
+        <div class="status-box {{ 'pass-bg' if result == 'PASS' else 'fail-bg' }}">
+            {% if result == "PASS" %}
+            ✔ The student is likely to perform well.
+            {% else %}
+            ✖ The student may need improvement.
+            {% endif %}
+        </div>
+
+        <hr>
+
+        <!-- INPUT SUMMARY -->
+        <h3><i class="fa-solid fa-clipboard"></i> Input Summary</h3>
+
+        <table>
+            <tr>
+                <td><i class="fa-solid fa-clock"></i> Study Hours</td>
+                <td>{{ study_hours }}</td>
+            </tr>
+            <tr>
+                <td><i class="fa-solid fa-users"></i> Attendance (%)</td>
+                <td>{{ attendance }}%</td>
+            </tr>
+            <tr>
+                <td><i class="fa-solid fa-book"></i> Previous Marks</td>
+                <td>{{ previous_marks }}</td>
+            </tr>
+        </table>
+
+        <!-- BUTTONS -->
+        <div class="buttons">
+            <a href="/" class="btn back">← Back</a>
+            <a href="/" class="btn again">⟳ Predict Again</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

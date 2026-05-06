@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Performance</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="header">
+    🎓 Student Performance Prediction
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Enter Details</h2>
+
+        <form action="/predict" method="post">
+
+            <label>Study Hours:</label>
+            <input type="number" name="study_hours" step="any" required>
+
+            <label>Attendance (%):</label>
+            <input type="number" name="attendance" step="any" required>
+
+            <label>Previous Marks:</label>
+            <input type="number" name="previous_marks" step="any" required>
+
+            <button type="submit">Predict</button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
